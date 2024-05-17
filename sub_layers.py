@@ -30,3 +30,23 @@ class  SelfAttention(nn.Module):
         # caculate attention weights
         attention_weights = torch.matmul(query, key_transposed) #(n_query, n_key)
         attention_weights = attention_weights / math.sqrt(self.d_k)
+
+        # masking
+        if self.mask == True :
+            indices = torch.triu_indices(
+                attention_weights.shape[1], attention_weights.shape[2], offset=1
+            )
+            attention_weights[:, indices[0], indices[1]] = float("-inf")
+        
+        attention_weights = F.softmax(attention_weights, dim = 2)
+
+        # attention weights to value
+        attention_weights_value = torch.matmal(
+            attention_weights, value
+        ) 
+        attention_weights_value = self.dropout(attention_weights_value)
+
+        return attention_weights_value
+    
+
+

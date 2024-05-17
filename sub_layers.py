@@ -47,6 +47,3 @@ class  SelfAttention(nn.Module):
         attention_weights_value = self.dropout(attention_weights_value)
 
         return attention_weights_value
-    
-
-

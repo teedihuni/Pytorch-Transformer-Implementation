@@ -8,7 +8,11 @@ import math
 '''
 Transformer Implementation 
 
-Source : https://github.com/IpsumDominum/Pytorch-Simple-Transformer
+<Source>
+https://github.com/IpsumDominum/Pytorch-Simple-Transformer
+https://github.com/hyunwoongko/transformer
+https://nlp.seas.harvard.edu/annotated-transformer/#background
+
 '''
 
 class  SelfAttention(nn.Module):
